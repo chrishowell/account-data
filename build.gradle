@@ -20,6 +20,12 @@ micronaut {
 }
 
 dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor "org.projectlombok:lombok:1.18.20"
+
+    implementation platform('io.projectreactor:reactor-bom:2020.0.11')
+    implementation 'io.projectreactor:reactor-core'
+    implementation("io.micronaut.data:micronaut-data-jdbc")
     annotationProcessor("io.micronaut:micronaut-http-validation")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-runtime")
@@ -42,6 +48,3 @@ java {
     sourceCompatibility = JavaVersion.toVersion("16")
     targetCompatibility = JavaVersion.toVersion("16")
 }
-
-
-

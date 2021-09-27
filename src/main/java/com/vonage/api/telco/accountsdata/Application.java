@@ -1,4 +1,4 @@
-package com.vonage.api.telco;
+package com.vonage.api.telco.accountsdata;
 
 import io.micronaut.runtime.Micronaut;
 
