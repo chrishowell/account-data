@@ -11,19 +11,11 @@ import java.util.List;
 @Repository("config")
 public interface AccountsDatabase extends GenericRepository<Account, String> {
 
-    @Query(value = "SELECT sysId FROM config.account WHERE capabilities LIKE '%-random%' OR accountRandomPoolsEnabled = 1",
-            nativeQuery = true)
-    List<Account> accountsWithAccountRandomPools();
-
-    @Query(value = "SELECT sysId FROM config.account WHERE capabilities LIKE '%queue-throttled-mt%' OR capabilities LIKE '%sub-control-queue%'",
-            nativeQuery = true)
-    List<Account> accountsWithSubmissionControlEnabled();
-
-    @Query(value = "SELECT sysId FROM config.account WHERE capabilities LIKE '%sms-use-sms-fe%'",
-            nativeQuery = true)
-    List<Account> accountsWithSmsFeEnabled();
-
     @Query(value = "SELECT sysId FROM config.account WHERE smppEnabled = 1",
             nativeQuery = true)
     List<Account> accountsWithSmppEnabled();
+
+    @Query(value = "SELECT sysId FROM config.account WHERE (masterAccountUseMasterQuota = 1 AND masterAccountId = :sysId) OR sysId = :sysId",
+            nativeQuery = true)
+    List<Account> quotaAccountsFor(String sysId);
 }

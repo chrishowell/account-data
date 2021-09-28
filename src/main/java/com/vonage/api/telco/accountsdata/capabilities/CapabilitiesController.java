@@ -11,7 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CapabilitiesController implements AccountsController {
 
-    private final AccountsDatabase accountsDatabase;
+    private final RealTimeAccountsDatabase accountsDatabase;
 
     @Get("/capabilities/account-random-pools")
     public Mono<List<String>> accountRandomPoolsAccounts() {
