@@ -2,10 +2,16 @@ micronaut:
   application:
     name: accountsData
 datasources:
-  default:
-    url: jdbc:mysql://mysqlbi.public.nexmo.io:3306/config
+  config:
+    url: jdbc:mysql://volga-rds.eu-central-1.nexmo.xxx:3306/config
     driverClassName: com.mysql.cj.jdbc.Driver
-
+    username: ''
+    password: ''
+  dashboard:
+    url: jdbc:mysql://mysqlbi.public.nexmo.io:3306/dashboard
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: ''
+    password: ''
 redact:
   api:
     baseUrl: http://10.112.78.124:3322
