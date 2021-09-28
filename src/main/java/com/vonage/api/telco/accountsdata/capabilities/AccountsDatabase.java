@@ -17,6 +17,10 @@ public interface AccountsDatabase extends GenericRepository<Account, String> {
             nativeQuery = true)
     List<Account> accountsWithSubmissionControlEnabled();
 
+    @Query(value = "SELECT sysId FROM config.account WHERE capabilities LIKE '%sms-use-sms-fe%'",
+            nativeQuery = true)
+    List<Account> accountsWithSmsFeEnabled();
+
     @Query(value = "SELECT sysId FROM config.account WHERE smppEnabled = 1",
             nativeQuery = true)
     List<Account> accountsWithSmppEnabled();

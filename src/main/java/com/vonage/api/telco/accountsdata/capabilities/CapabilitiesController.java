@@ -23,4 +23,9 @@ public class CapabilitiesController implements AccountsController {
         return idsFromAccounts(accountsDatabase::accountsWithSubmissionControlEnabled);
     }
 
+    @Get("/capabilities/sms-fe")
+    public Mono<List<String>> migratedAccounts() {
+        return idsFromAccounts(accountsDatabase::accountsWithSmsFeEnabled);
+    }
+
 }
