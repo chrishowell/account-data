@@ -23,6 +23,11 @@ public class CapabilitiesController implements AccountsController {
         return idsFromAccounts(accountsDatabase::accountsWithSubmissionControlEnabled);
     }
 
+    @Get("/capabilities/disable-per-sender-throttle")
+    public Mono<List<String>> disablePerSenderThrottleAccounts() {
+        return idsFromAccounts(accountsDatabase::accountsWithDisablePerSenderThrottle);
+    }
+
     @Get("/capabilities/sms-fe")
     public Mono<List<String>> migratedAccounts() {
         return idsFromAccounts(accountsDatabase::accountsWithSmsFeEnabled);
