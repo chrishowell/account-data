@@ -13,7 +13,7 @@ import static java.util.stream.Collectors.toMap;
 @RequiredArgsConstructor
 public class AccountMtLimitsController implements AccountsController {
 
-    private final AccountsDatabase accountsDatabase;
+    private final RealTimeAccountsDatabase accountsDatabase;
 
     @Post("/accounts/mt-limits")
     public Map<String, Long> accountMtLimits(List<String> sysIds) {

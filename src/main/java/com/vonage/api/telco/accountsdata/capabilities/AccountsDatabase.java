@@ -19,7 +19,4 @@ public interface AccountsDatabase extends GenericRepository<Account, String> {
             nativeQuery = true)
     List<Account> quotaAccountsFor(String sysId);
 
-    @Query(value = "SELECT sysId, maxMtPerSecond FROM config.account WHERE sysId IN (:sysIds)",
-            nativeQuery = true)
-    List<AccountWithMtLimit> accountMtLimitsFor(List<String> sysIds);
 }

@@ -26,4 +26,8 @@ public interface RealTimeAccountsDatabase extends GenericRepository<Account, Str
     @Query(value = "SELECT sysId FROM config.account WHERE capabilities LIKE '%disable-per-sender-throttle%'",
             nativeQuery = true)
     List<Account> accountsWithDisablePerSenderThrottle();
+
+    @Query(value = "SELECT sysId, maxMtPerSecond FROM config.account WHERE sysId IN (:sysIds)",
+            nativeQuery = true)
+    List<AccountWithMtLimit> accountMtLimitsFor(List<String> sysIds);
 }
