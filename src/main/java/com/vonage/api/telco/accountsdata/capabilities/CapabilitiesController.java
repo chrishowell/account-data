@@ -28,9 +28,9 @@ public class CapabilitiesController implements AccountsController {
         return idsFromAccounts(accountsDatabase::accountsWithDisablePerSenderThrottle);
     }
 
-    @Get("/capabilities/sms-fe")
-    public Mono<List<String>> migratedAccounts() {
-        return idsFromAccounts(accountsDatabase::accountsWithSmsFeEnabled);
+    @Get("/capabilities/sms-use-sms-legacy")
+    public Mono<List<String>> legacyAccounts() {
+        return idsFromAccounts(accountsDatabase::accountsWithSmsLegacyEnabled);
     }
 
 }

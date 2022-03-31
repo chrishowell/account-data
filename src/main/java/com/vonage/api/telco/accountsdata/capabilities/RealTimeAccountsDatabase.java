@@ -19,9 +19,9 @@ public interface RealTimeAccountsDatabase extends GenericRepository<Account, Str
             nativeQuery = true)
     List<Account> accountsWithSubmissionControlEnabled();
 
-    @Query(value = "SELECT sysId FROM config.account WHERE capabilities LIKE '%sms-use-sms-fe%'",
+    @Query(value = "SELECT sysId FROM config.account WHERE capabilities LIKE '%sms-use-sms-legacy%'",
             nativeQuery = true)
-    List<Account> accountsWithSmsFeEnabled();
+    List<Account> accountsWithSmsLegacyEnabled();
 
     @Query(value = "SELECT sysId FROM config.account WHERE capabilities LIKE '%disable-per-sender-throttle%'",
             nativeQuery = true)
